@@ -61,10 +61,6 @@ vidurkiai <- data.frame(
   RF_MAE = round(mean(demo_ensemble_results$RF_MAE), 3)
 )
 demo_ensemble_results <- rbind(demo_ensemble_results, vidurkiai)
-
-print("==================================================")
-print("10-FOLD CV RF REZULTATAI (Sutampa su mega_ensemble_results):")
-print("==================================================")
 print(demo_ensemble_results)
 
 # Apjungiami kintamųjų svarbos rezultatai
