@@ -6,6 +6,8 @@
 # reikalauja didelių skaičiavimo resursų, šiame skripte naudojami iš anksto
 # išgauti epigenetiniai įverčiai (Elastic Net, McCartney, EpiScore).
 
+setwd("C:/Users/jūsų_direktorija") # svarbu nustatyti savo esamą direktoriją
+
 if (!require("randomForest", quietly = TRUE)) install.packages("randomForest")
 library(randomForest)
 
