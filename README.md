@@ -11,14 +11,16 @@ Vilniaus universiteto bioinformatikos bakalauro baigiamojo darbo kodas. KMI prog
 * `demo_ansamblis.R` - Sutrumpintas demonstracinis skriptas, skirtas greitam *Random Forest* ansamblio veikimo atkartojimui bei kintamųjų svarbos analizei, nereikalaujantis didelių skaičiavimo resursų ar pilnų mikrogardelių matricų.
 
 ### Duomenų ir svorių failai (CSV)
-* `demo_duomenys.csv` - Paruoštas demonstracinis duomenų rinkinys, naudojamas kartu su `demo_ansamblis.R` skriptu. Jame pateikiami iš anksto apskaičiuoti epigenetiniai įverčiai ir pacientų metaduomenys. Stulpelių reikšmės:
+* `demo_duomenys.csv` - Struktūrizuotas duomenų rinkinys, pritaikytas `demo_ansamblis.R` skriptui. Siekiant absoliutaus matematinio tikslumo ir eliminuojant *Elastic Net* kintamumą mokymo/testavimo fazėse, failas sugeneruotas chronologiniu principu pagal kiekvieną foldą. Stulpelių reikšmės:
+    * `Fold` - Kryžminės patikros iteracijos numeris (1–10).
+    * `Type` - Duomenų eilutės paskirtis konkrečiame folde (`train` – modelio mokymui, `test` – nepriklausomam testavimui).
     * `BMI` - Faktinis paciento kūno masės indeksas (kg/m²).
-    * `EN_Raw_Score` - Bazinio *Elastic Net* modelio sugeneruotas KMI įvertis (Kryžminės patikros metu gautas pirmojo architektūros lygmens rezultatas).
-    * `McCartney_Score` - Literatūrinio *McCartney* prediktoriaus apskaičiuotas KMI įvertis.
-    * `EpiScore_Score` - Literatūrinio *EpiScore* prediktoriaus apskaičiuotas KMI įvertis.
+    * `EN_Raw_Score` - Pirmojo lygmens *Elastic Net* modelio išgautas epigenetinis KMI signalas (mokymo imtyje naudojami vidiniai *Out-of-Fold* įverčiai, testavimo – grynosios testinės prognozės).
+    * `McCartney_Score` - Istorinio *McCartney* modelio sugeneruotas KMI balas.
+    * `EpiScore_Score` - Istorinio *EpiScore* modelio sugeneruotas KMI balas.
     * `Age` - Chronologinis paciento amžius (metais).
-    * `Gender` - Paciento lytis.
-    * `CellType` - Kraujo ląstelių tipas.
-    * `Dataset` - Originalaus duomenų rinkinio pavadinimas.
+    * `Gender` - Paciento lytis (kategorinis faktorius).
+    * `CellType` - Kraujo ląstelių populiacijos / audinio frakcijos tipas.
+    * `Dataset` - Originalios kohortos pavadinimas.
 * `BMI_Elnet_EpiScore_weights.csv` - Iš anksto apskaičiuoti *EpiScore* modelio metilinimo žymenų svoriai.
 * `bmi_predictor_values_from_mccartney.csv` - Bazinio *McCartney* epigenetinio KMI prediktoriaus biožymenys ir jų koeficientai.
