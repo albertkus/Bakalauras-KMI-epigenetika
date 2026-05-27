@@ -22,8 +22,8 @@ valid_test_dv <- !is.na(actual_bmi_dv)
 dvorkin_clean <- dvorkin[, valid_test_dv]
 actual_bmi_clean_dv <- actual_bmi_dv[valid_test_dv]
 
-salas1 <- readRDS("salas.rds")
-salas2 <- readRDS("salas2.rds")
+salas6 <- readRDS("salas.rds")
+salas12 <- readRDS("salas2.rds")
 wang <- readRDS("wang.rds")
 zhang <- readRDS("zhang.rds")
 
@@ -93,15 +93,15 @@ evaluate_mccartney <- function(dataset_name, dataset_matrix) {
 results_olympic <- evaluate_mccartney("Olympic", olympic)
 results_dvorkin <- evaluate_mccartney("Dvorkin", dvorkin)
 results_women   <- evaluate_mccartney("Women Training", women_training)
-results_salas1  <- evaluate_mccartney("Salas1", salas1)
-results_salas2  <- evaluate_mccartney("Salas2", salas2)
+results_salas6  <- evaluate_mccartney("Salas6", salas6)
+results_salas12  <- evaluate_mccartney("Salas12", salas12)
 results_wang    <- evaluate_mccartney("Wang", wang)
 results_zhang   <- evaluate_mccartney("Zhang", zhang)
 
 # 4. Sujungiami visi rezultatai
 final_mccartney_table <- rbind(
   results_olympic, results_dvorkin, results_women,
-  results_salas1, results_salas2, results_wang, results_zhang
+  results_salas6, results_salas12, results_wang, results_zhang
 )
 
 print("--- McCartney BMI Prediktoriaus rezultatai (7 imtys) ---")
