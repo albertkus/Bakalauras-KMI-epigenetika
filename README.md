@@ -18,9 +18,9 @@ Vilniaus universiteto bioinformatikos bakalauro baigiamojo darbo kodas. KMI prog
     * `EN_Raw_Score` - Pirmojo lygmens *Elastic Net* modelio išgautas epigenetinis KMI signalas (mokymo imtyje naudojami vidiniai *Out-of-Fold* įverčiai, testavimo – grynosios testinės prognozės).
     * `McCartney_Score` - Istorinio *McCartney* modelio sugeneruotas KMI balas.
     * `EpiScore_Score` - Istorinio *EpiScore* modelio sugeneruotas KMI balas.
-    * `Age` - Chronologinis paciento amžius (metais).
-    * `Gender` - Paciento lytis (kategorinis faktorius).
-    * `CellType` - Kraujo ląstelių populiacijos / audinio frakcijos tipas.
-    * `Dataset` - Originalios kohortos pavadinimas.
+    * `Age` - Chronologinis paciento amžius.
+    * `Gender` - Paciento lytis.
+    * `CellType` - Kraujo ląstelių tipas.
+    * `Dataset` - Originalios imties pavadinimas.
 * `BMI_Elnet_EpiScore_weights.csv` - Iš anksto apskaičiuoti *EpiScore* modelio metilinimo žymenų svoriai.
 * `bmi_predictor_values_from_mccartney.csv` - Bazinio *McCartney* epigenetinio KMI prediktoriaus biožymenys ir jų koeficientai.
