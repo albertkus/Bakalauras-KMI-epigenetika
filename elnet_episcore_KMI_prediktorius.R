@@ -22,8 +22,8 @@ valid_test_dv <- !is.na(actual_bmi_dv)
 dvorkin_clean <- dvorkin[, valid_test_dv]
 actual_bmi_clean_dv <- actual_bmi_dv[valid_test_dv]
 
-salas1 <- readRDS("salas.rds")
-salas2 <- readRDS("salas2.rds")
+salas6 <- readRDS("salas.rds")
+salas12 <- readRDS("salas2.rds")
 wang <- readRDS("wang.rds")
 zhang <- readRDS("zhang.rds")
 
@@ -102,15 +102,15 @@ evaluate_episcore <- function(dataset_name, dataset_matrix, predictor_df, weight
 results_olympic_elnet <- evaluate_episcore("Olympic", olympic, episcore_predictor, "Coefficient")
 results_dvorkin_elnet <- evaluate_episcore("Dvorkin", dvorkin, episcore_predictor, "Coefficient")
 results_women_elnet   <- evaluate_episcore("Women Training", women_training, episcore_predictor, "Coefficient")
-results_salas1_elnet  <- evaluate_episcore("Salas1", salas1, episcore_predictor, "Coefficient")
-results_salas2_elnet  <- evaluate_episcore("Salas2", salas2, episcore_predictor, "Coefficient")
+results_salas6_elnet  <- evaluate_episcore("Salas6", salas6, episcore_predictor, "Coefficient")
+results_salas12_elnet  <- evaluate_episcore("Salas12", salas12, episcore_predictor, "Coefficient")
 results_wang_elnet    <- evaluate_episcore("Wang", wang, episcore_predictor, "Coefficient")
 results_zhang_elnet   <- evaluate_episcore("Zhang", zhang, episcore_predictor, "Coefficient")
 
 # Sujungiami visi rezultatai į vieną lentelę
 elnet_comparison_table <- rbind(
   results_olympic_elnet, results_dvorkin_elnet,  results_women_elnet,
-  results_salas1_elnet, results_salas2_elnet, results_wang_elnet, results_zhang_elnet
+  results_salas6_elnet, results_salas12_elnet, results_wang_elnet, results_zhang_elnet
 )
 
 print("--- EpiScore KMI prediktoriaus tikslumas (7 imtys) ---")
