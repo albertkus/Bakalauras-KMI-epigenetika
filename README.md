@@ -11,7 +11,7 @@ Vilniaus universiteto bioinformatikos bakalauro baigiamojo darbo kodas. KMI prog
 * `demo_ansamblis.R` - Sutrumpintas demonstracinis skriptas, skirtas greitam *Random Forest* ansamblio veikimo atkartojimui bei kintamųjų svarbos analizei, nereikalaujantis didelių skaičiavimo resursų ar pilnų mikrogardelių matricų.
 
 ### Duomenų ir svorių failai (CSV)
-* `demo_duomenys.csv` - Struktūrizuotas duomenų rinkinys, pritaikytas `demo_ansamblis.R` skriptui. Siekiant absoliutaus matematinio tikslumo ir eliminuojant *Elastic Net* kintamumą mokymo/testavimo fazėse, failas sugeneruotas chronologiniu principu pagal kiekvieną foldą. Stulpelių reikšmės:
+* `demo_duomenys.csv` - Struktūrizuotas duomenų rinkinys, pritaikytas `demo_ansamblis.R` skriptui. Stulpelių reikšmės:
     * `Fold` - Kryžminės patikros iteracijos numeris (1–10).
     * `Type` - Duomenų eilutės paskirtis konkrečiame folde (`train` – modelio mokymui, `test` – nepriklausomam testavimui).
     * `BMI` - Faktinis paciento kūno masės indeksas (kg/m²).
