@@ -23,8 +23,8 @@ valid_test_dv <- !is.na(actual_bmi_dv)
 dvorkin_clean <- dvorkin[, valid_test_dv]
 actual_bmi_clean_dv <- actual_bmi_dv[valid_test_dv]
 
-salas1 <- readRDS("salas.rds")
-salas2 <- readRDS("salas2.rds")
+salas6 <- readRDS("salas.rds")
+salas12 <- readRDS("salas2.rds")
 wang <- readRDS("wang.rds")
 zhang <- readRDS("zhang.rds")
 
@@ -41,7 +41,7 @@ library(limma)
 # Bendros CpG taškų erdvės nustatymas tarp visų 7 kohortų
 all_datasets_list <- list(
   rownames(olympic), rownames(women_training), rownames(dvorkin),
-  rownames(salas1), rownames(salas2), rownames(wang), rownames(zhang)
+  rownames(salas6), rownames(salas12), rownames(wang), rownames(zhang)
 )
 common_cpgs <- Reduce(intersect, all_datasets_list)
 
@@ -111,8 +111,8 @@ extract_pheno <- function(original_matrix, dataset_name) {
 pheno_olympic <- extract_pheno(olympic, "Olympic")
 pheno_women <- extract_pheno(women_training, "Women")
 pheno_dvorkin <- extract_pheno(dvorkin, "Dvorkin")
-pheno_salas1 <- extract_pheno(salas1, "Salas1")
-pheno_salas2 <- extract_pheno(salas2, "Salas2")
+pheno_salas6 <- extract_pheno(salas6, "Salas6")
+pheno_salas12 <- extract_pheno(salas12, "salas12")
 pheno_wang <- extract_pheno(wang, "Wang")
 pheno_zhang <- extract_pheno(zhang, "Zhang")
 
@@ -125,15 +125,15 @@ filter_valid <- function(df) {
 v_olympic <- filter_valid(pheno_olympic)
 v_women <- filter_valid(pheno_women)
 v_dvorkin <- filter_valid(pheno_dvorkin)
-v_salas1 <- filter_valid(pheno_salas1)
-v_salas2 <- filter_valid(pheno_salas2)
+v_salas6 <- filter_valid(pheno_salas6)
+v_salas12 <- filter_valid(pheno_salas12)
 v_wang <- filter_valid(pheno_wang)
 v_zhang <- filter_valid(pheno_zhang)
 
 # Visų imčių fenotipinių duomenų apjungimas į vieną lentelę
 pheno_combined <- rbind(
   pheno_olympic[v_olympic, ], pheno_women[v_women, ], pheno_dvorkin[v_dvorkin, ],
-  pheno_salas1[v_salas1, ], pheno_salas2[v_salas2, ], pheno_wang[v_wang, ], pheno_zhang[v_zhang, ]
+  pheno_salas6[v_salas6, ], pheno_salas12[v_salas12, ], pheno_wang[v_wang, ], pheno_zhang[v_zhang, ]
 )
 
 # Atrinktų bendrų CpG taškų ir validžių tyriamųjų DNR metilinimo duomenų apjungimas
@@ -141,8 +141,8 @@ dna_combined <- cbind(
   olympic[common_cpgs, v_olympic],
   women_training[common_cpgs, v_women],
   dvorkin[common_cpgs, v_dvorkin],
-  salas1[common_cpgs, v_salas1],
-  salas2[common_cpgs, v_salas2],
+  salas6[common_cpgs, v_salas6],
+  salas12[common_cpgs, v_salas12],
   wang[common_cpgs, v_wang],
   zhang[common_cpgs, v_zhang]
 )
